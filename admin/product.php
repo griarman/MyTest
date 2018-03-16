@@ -1,6 +1,8 @@
 <?php 
 	session_start();
-	if(!isset($_GET['id'])){
+	
+
+	if(!isset($_GET['id']) || !isset($_SESSION['true'])){
 		header('Location:index.php');
 		die;
 	}

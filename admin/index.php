@@ -12,6 +12,7 @@
 		<button>Log in</button>
 	</form>
 	<?php 
+    //comment
 		session_start();
 		if (isset($_SESSION['error'])) {
 			echo '<div>Wrong login or password</div>';

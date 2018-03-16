@@ -1,0 +1,35 @@
+table{
+	margin: 20px auto;
+}
+tr,table,td{
+	outline: none;
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+}
+td{
+	padding: 10px;
+}
+button{
+	background: #fff;
+	border: 0; 
+	outline: none;
+	cursor: pointer;
+}
+button:active{
+	opacity: .7;
+}
+#add{
+	padding: 3.5px 7px;
+	background: linear-gradient(0deg,#fff,#ccc);
+	border-radius: 5px;
+}
+a{
+	color: #000;
+	text-decoration: none;
+}
+a:active{
+	opacity: .7;
+}
+#logOut{
+	float: right;
+}

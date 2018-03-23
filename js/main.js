@@ -12,7 +12,7 @@ $(document).ready(function(){
 				location.reload();
 			}, 
 		})
-	})
+	});
 	$('.del').click(function(){
 		let tr = $(this).closest('tr');
 		let id = tr.attr('id');
@@ -28,7 +28,7 @@ $(document).ready(function(){
 			}
 			
 		})
-	})
+	});
 	$('.upd').click(function(){
 		let tr = $(this).closest('tr');
 		let id = tr.attr('id');
@@ -45,7 +45,7 @@ $(document).ready(function(){
 				tr.find('a').html('Add product in ' + name)
 			}		
 		})
-	})
+	});
 	$('.prod_del').click(function(){
 		let id = $(this).closest('tr').attr('id');
 		$(this).closest('tr').remove();
@@ -57,7 +57,7 @@ $(document).ready(function(){
 				action: 'rem' 
 			}
 		})
-	})
+	});
 	$('.prod_upd').click(function(){
 		let tr = $(this).closest('tr');
 		let id = tr.attr('id');
@@ -75,24 +75,27 @@ $(document).ready(function(){
 				action: 'upd' 
 			}
 		})
-	})
-	$('article').click(function(){
+	});
+
+    let article = $('article');
+    article.click(function(){
 		let id = $(this).attr('id');
-		let href = location.href.split('=');
-		href = href[0]+'='+id;
-		location = href;
-	})
-	let article = $('article');
+		let href = location.search.split('=');
+		href = href[0] + '=' + id;
+		location.search = href;
+	});
+
 	for(let i = 0; i < article.length;i++){
-		let href = location.href.split('=');
+		let href = location.search.split('=');
 		href = href[1];
-		if(href == article.eq(i).attr('id')){
+		if(href === article.eq(i).attr('id')){
             article.eq(i).css({
 				'background-color':'#F39814',
 				color: '#fff'
             });
 		}
 	}
+
 	function handleFileSelectMulti(evt) {
 		let files = evt.target.files;
 		$('#outputMulti').html('');
@@ -117,4 +120,4 @@ $(document).ready(function(){
 		}
 	}$('#images').on('change', handleFileSelectMulti);
 
-})
+});

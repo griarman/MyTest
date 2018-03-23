@@ -35,7 +35,7 @@
 			</div>
 			<div id="middle"  class="col-md-6">
 				<label for="description">Description</label>
-				<textarea id="description" name="description"" required="" placeholder="Enter The Description"></textarea>
+				<textarea id="description" name="description" required placeholder="Enter The Description"></textarea>
 			</div>
 			<div id="right" class="col-md-3">
 				<label for="images" id="add_images">Add images</label>
@@ -55,12 +55,13 @@
 			echo "<div id=error>{$_SESSION['error']}</div>";
 			unset($_SESSION['error']);
 		}
-		echo '<div class="col-md-3">';
+		echo '<div class="col-md-3"><main>Categories</main>';
+
         $arr = get_cat();
         for($i = 0; $i < count($arr); $i++) {
             echo "<article id={$arr[$i]['id']}>{$arr[$i]['name']}</article>";
         }
-        echo '</div>';
+        echo '<a href="home.php" id="href">Add Cadegories</a></div>';
 
         echo '<div class=\'col-md-7 offset-md-2\'>';
 		echo "<table>";

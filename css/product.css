@@ -113,8 +113,6 @@ img{
 img:hover{
 	transform: scale(3,3);
 	z-index: 8888;
-	
-
 }
 .prod_des{
 	max-width: 200px;
@@ -138,8 +136,23 @@ a{
 	color: black;
 	float: right;
 }
-article:nth-of-type(1){
-	margin-top: 5px;
+#href{
+	display: block;
+	width: 60%;
+	text-align: center!important;
+	border: 1px solid #ccc;
+	margin: 0 auto;
+	float: none;
+}
+main{
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 60%;
+	text-align: center!important;
+	border: 1px solid #ccc;
+	border-bottom: 0;
+	font-weight: bold;
+	padding: 3px 0;
 }
 article{
 	margin: 0 auto;

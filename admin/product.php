@@ -47,15 +47,25 @@
 		<button id="add">Add new Product</button>
 	</form>
 
-	<?php 
+    <div class="row">
+
+	<?php
+        include 'model.php';
 		if(isset($_SESSION['error'])){
 			echo "<div id=error>{$_SESSION['error']}</div>";
 			unset($_SESSION['error']);
 		}
+		echo '<div class="col-md-3">';
+        $arr = get_cat();
+        for($i = 0; $i < count($arr); $i++) {
+            echo "<article id={$arr[$i]['id']}>{$arr[$i]['name']}</article>";
+        }
+        echo '</div>';
 
+        echo '<div class=\'col-md-7 offset-md-2\'>';
 		echo "<table>";
 		echo "<tr><td>Name</td><td>Price</td><td>Description</td><td>Image</td></tr>";
-		include 'model.php';
+
 		$arr = get_prod($_SESSION['id']);
 
 		foreach ($arr as $key => $value) {
@@ -72,8 +82,9 @@
 			<td>{$images}</td>
 			<td><button class=prod_upd>Update</button></td><td><button class=prod_del>Delete</button></td></tr>";
 		}
-		echo "</table>";
+		echo "</table></div>";
 	?>
+    </div>
 	
 </body>
 </html>

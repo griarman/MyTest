@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Admin</title>
+    <meta charset="utf-8">
 </head>
 <body>
 	<form action="login.php" method="post">
@@ -12,7 +13,7 @@
 		<button>Log in</button>
 	</form>
 	<?php 
-    //comment
+
 		session_start();
 		if (isset($_SESSION['error'])) {
 			echo '<div>Wrong login or password</div>';

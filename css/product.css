@@ -85,7 +85,7 @@ button:focus{
 }
 table{
 	border-collapse: collapse;
-	margin: 10px auto;
+	margin: 10px 0;
 
 }
 table,tr,td{
@@ -137,4 +137,15 @@ section{
 a{
 	color: black;
 	float: right;
+}
+article:nth-of-type(1){
+	margin-top: 5px;
+}
+article{
+	margin: 0 auto;
+	width: 60%;
+	text-align: center!important;
+	cursor: pointer;
+	border: 1px solid #ccc;
+	border-bottom: 0;
 }

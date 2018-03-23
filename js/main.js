@@ -57,7 +57,6 @@ $(document).ready(function(){
 				action: 'rem' 
 			}
 		})
-		
 	})
 	$('.prod_upd').click(function(){
 		let tr = $(this).closest('tr');
@@ -76,8 +75,24 @@ $(document).ready(function(){
 				action: 'upd' 
 			}
 		})
-
 	})
+	$('article').click(function(){
+		let id = $(this).attr('id');
+		let href = location.href.split('=');
+		href = href[0]+'='+id;
+		location = href;
+	})
+	let article = $('article');
+	for(let i = 0; i < article.length;i++){
+		let href = location.href.split('=');
+		href = href[1];
+		if(href == article.eq(i).attr('id')){
+            article.eq(i).css({
+				'background-color':'#F39814',
+				color: '#fff'
+            });
+		}
+	}
 	function handleFileSelectMulti(evt) {
 		let files = evt.target.files;
 		$('#outputMulti').html('');

@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin</title>
+	<title>Log In</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
 	<form action="login.php" method="post">
-		<label for="login">Login</label>		
-		<input type="text" id='login' placeholder="Login" name="login" required>
-		<label for="pass">Password</label>		
-		<input type="password" id="pass" placeholder="Password" name="password" required autocomplete="off">
-		<button>Log in</button>
+		<div>Login</div>
+        <div>
+            <label for="login">Username <span>*</span></label><br>
+		    <input type="text" id='login' placeholder="Enter The Username" name="login" required>
+        </div>
+		<div>
+            <label for="pass">Password <span>*</span></label><br>
+		    <input type="password" id="pass" placeholder="Enter The Password" name="password" required autocomplete="off">
+        </div>
+        <button>Log in</button>
 	</form>
 	<?php 
 

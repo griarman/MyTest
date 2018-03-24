@@ -33,3 +33,7 @@ a:active{
 #logOut{
 	float: right;
 }
+
+[hidden] {
+	display: none;
+}

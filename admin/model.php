@@ -94,13 +94,13 @@ function get_prod($cad_id){
 }
 function get_image($prod_id){
 	global $conn;
-	$query = "SELECT image FROM `images` WHERE prod_id='$prod_id' LIMIT 1";
+	$query = "SELECT image FROM `images` WHERE prod_id='$prod_id'";
 	$res = mysqli_query($conn,$query);
 	if (!$res) {
 		die(mysqli_error($conn));
 	}
-	$arr = mysqli_fetch_assoc($res);
-	return $arr['image'];
+	$arr = mysqli_fetch_all($res,MYSQLI_ASSOC);
+	return $arr;
 }
 
 function remove_img($id){

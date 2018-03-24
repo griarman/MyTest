@@ -6,7 +6,6 @@
 		header('Location:index.php');
 		die;
 	}
-	
 	$_SESSION['id']=$_GET['id'];
 ?>
 <!DOCTYPE html>
@@ -47,8 +46,7 @@
 		<button id="add">Add new Product</button>
 	</form>
 
-    <div class="row">
-
+    <div class="container-fluid row">
 	<?php
         include 'model.php';
 		if(isset($_SESSION['error'])){
@@ -71,16 +69,24 @@
 
 		foreach ($arr as $key => $value) {
 			$images = get_image($arr[$key]['id']);
-			if(empty($images)){
+            for($i = 0; $i < count($images); $i++){
+                $new_images[] = $images[$i]['image'];
+            }
+
+			if(empty($new_images)){
 				$images = '<span>No Image</span>';
 			}
 			else{
-				$images = "<img src={$images}>";
+                $data = implode(' ',$new_images);
+
+				$images = "<label for='img-{$arr[$key]['id']}'><img src={$new_images[0]} data-array='$data'></label><input type='file' hidden id='img-{$arr[$key]['id']}'>";
 			}
+
+
 			echo "<tr id={$arr[$key]['id']}><td contenteditable=true class=prod_name>{$arr[$key]['name']}</td>
 			<td contenteditable=true class=prod_price>{$arr[$key]['price']}</td>
 			<td contenteditable=true class=prod_des>{$arr[$key]['description']}</td>
-			<td>{$images}</td>
+			<td><button class='leftArrow'><</button>{$images}<button class='rightArrow'>></button></td>
 			<td><button class=prod_upd>Update</button></td><td><button class=prod_del>Delete</button></td></tr>";
 		}
 		echo "</table></div>";

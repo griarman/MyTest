@@ -162,3 +162,11 @@ article{
 	border: 1px solid #ccc;
 	border-bottom: 0;
 }
+.leftArrow{
+	margin-left: -7px;
+	margin-right: 10px;
+}
+.rightArrow{
+	margin-left: 10px;
+	margin-right: -7px;
+}

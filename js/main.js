@@ -76,6 +76,32 @@ $(document).ready(function(){
 			}
 		})
 	});
+	$('.leftArrow').click(function () {
+		let img = $(this).closest('tr').find('img');
+		let data = img.attr('data-array').split(' ');
+		let src = img.attr('src');
+		for(let i = 0; i < data.length;i++){
+			if(src === data[i]){
+				if(i != 0) {
+                    img.attr('src', data[i - 1]);
+                }
+			}
+		}
+    });
+    $('.rightArrow').click(function () {
+        let img = $(this).closest('tr').find('img');
+        let data = img.attr('data-array').split(' ');
+        let src = img.attr('src');
+        for(let i = 0; i < data.length;i++){
+            if(src === data[i] ){
+            	if(i != data.length - 1){
+                	img.attr('src', data[i+1]);
+            	}
+                // alert(img.attr('src'));
+
+            }
+        }
+    });
 
     let article = $('article');
     article.click(function(){

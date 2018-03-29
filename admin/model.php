@@ -137,5 +137,12 @@ function change_prod($id,$name,$price,$des){
 	if (!$res) {
 		die(mysqli_error($conn));
 	}
-
+}
+function change_img($src,$path){
+    global $conn;
+    $query = "UPDATE `images` SET `image`='$path' WHERE image='$src'";
+    $res = mysqli_query($conn,$query);
+    if (!$res) {
+        die(mysqli_error($conn));
+    }
 }

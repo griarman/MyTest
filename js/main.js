@@ -94,7 +94,7 @@ $(document).ready(function(){
         let src = img.attr('src');
         for(let i = 0; i < data.length;i++){
             if(src === data[i] ){
-            	if(i != data.length - 1){
+            	if(i !== data.length - 1){
                 	img.attr('src', data[i+1]);
             	}
                 // alert(img.attr('src'));
@@ -103,6 +103,36 @@ $(document).ready(function(){
         }
     });
 
+    // $('img').filter("[data-array]").click(function () {
+		// let file = new  FormData(img);
+    // 	console.table(file);
+    // });
+	$('input').filter('[hidden]').on('change',function(evt){
+        if(!this.value) {
+        	return;
+		}
+		let files = evt.target.files;
+        let form = new FormData();
+        let newImg = $(this.previousSibling.firstChild);
+        let id = newImg.attr('data-id');
+        let src = newImg.attr('src');
+        form.append('newImage', files[0]);
+        form.append('id', id);
+        form.append('src', src);
+        $.ajax({
+            url: "change_img.php",
+            type: "POST",
+            data: form,
+            contentType: false,       // The content type used when sending data to the server.
+            cache: false,             // To unable request pages to be cached
+            processData:false,        // To send DOMDocument or non processed data file it is set to false
+			success:function (newSrc) {
+                let data = newImg.attr('src',newSrc).attr('data-array');
+                data = data.replace(new RegExp(src), newSrc);
+                newImg.attr('data-array', data);
+            }
+        });
+	});
     let article = $('article');
     article.click(function(){
 		let id = $(this).attr('id');
@@ -122,7 +152,7 @@ $(document).ready(function(){
 		}
 	}
 
-	function handleFileSelectMulti(evt) {
+    $('#images').on('change',function (evt) {
 		let files = evt.target.files;
 		$('#outputMulti').html('');
 		for (let i = 0, f; f = files[i]; i++) {
@@ -144,6 +174,6 @@ $(document).ready(function(){
 
 		reader.readAsDataURL(f);
 		}
-	}$('#images').on('change', handleFileSelectMulti);
+	});
 
 });

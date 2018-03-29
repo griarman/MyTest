@@ -14,13 +14,14 @@ if(!is_numeric($price) || $price <= 0){
 	die;
 }
 if(!$name || !$price || !$description){
-	header("Location:product.php?id={$_SESSION['id']}");
+    $_SESSION['error'] ='Please enter all empty fields';
+    header("Location:product.php?id={$_SESSION['id']}");
 	die;
 }
 include 'model.php';
 if(!add_product($name,$price,$description,$img)){
 	header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found", true, 404);
-	die();
+	die;
 }
 
 header("Location:product.php?id={$_SESSION['id']}");

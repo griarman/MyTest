@@ -49,10 +49,7 @@
     <div class="container-fluid row">
 	<?php
         include 'model.php';
-		if(isset($_SESSION['error'])){
-			echo "<div id=error>{$_SESSION['error']}</div>";
-			unset($_SESSION['error']);
-		}
+
 		echo '<div class="col-md-3"><main>Categories</main>';
 
         $arr = get_cat();
@@ -68,7 +65,8 @@
 		$arr = get_prod($_SESSION['id']);
 
 		foreach ($arr as $key => $value) {
-			$images = get_image($arr[$key]['id']);
+		    $new_images = [];
+			$images = get_image($value['id']);
             for($i = 0; $i < count($images); $i++){
                 $new_images[] = $images[$i]['image'];
             }
@@ -78,8 +76,7 @@
 			}
 			else{
                 $data = implode(' ',$new_images);
-
-				$images = "<label for='img-{$arr[$key]['id']}'><img src={$new_images[0]} data-array='$data'></label><input type='file' hidden id='img-{$arr[$key]['id']}'>";
+				$images = "<form name='img' enctype=\"multipart/form-data\" method=\"post\" enctype=\"multipart/form-data\"><label for='img-{$arr[$key]['id']}'><img src={$new_images[0]} data-id='{$_SESSION['id']}' data-array='$data' class='newImg'></label><input type='file' hidden id='img-{$arr[$key]['id']}'></form>";
 			}
 
 
@@ -89,9 +86,13 @@
 			<td><button class='leftArrow'><</button>{$images}<button class='rightArrow'>></button></td>
 			<td><button class=prod_upd>Update</button></td><td><button class=prod_del>Delete</button></td></tr>";
 		}
-		echo "</table></div>";
+		echo "</table></div></div>";
+        if(isset($_SESSION['error'])){
+            echo "<div id=error class='center'>{$_SESSION['error']}</div>";
+            unset($_SESSION['error']);
+        }
 	?>
-    </div>
-	
+
 </body>
 </html>
+<!--https://www.formget.com/ajax-image-upload-php/-->

@@ -5,3 +5,24 @@
 .nav-item{
     margin-left: 10%!important;
 }
+
+body,html{
+    height: 100%;
+}
+.bg-light{
+    background: #4267B2!important;
+}
+.bg-light>:nth-child(n),#ulNav>li>a{
+    color: white!important;
+}
+main{
+    background-image: url(http://kreativo.se/backlogin.jpg);
+    background-size: cover;
+    font-family: "Helvetica Neue", Helvetica, Arial;
+    height: calc(100% - 57px);
+}
+main:after{
+    content: '';
+    display: block;
+    clear: both;
+}

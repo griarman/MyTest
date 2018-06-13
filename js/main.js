@@ -95,7 +95,7 @@ $(document).ready(function(){
         for(let i = 0; i < data.length;i++){
             if(src === data[i] ){
             	if(i !== data.length - 1){
-                	img.attr('src', data[i+1]);
+                	img.attr('src', data[i + 1]);
             	}
                 // alert(img.attr('src'));
 
@@ -159,6 +159,7 @@ $(document).ready(function(){
 
 		if (!f.type.match('image.*')) {
 		  alert("Только изображения....");
+		  return;
 		}
 
 		let reader = new FileReader();

@@ -3,7 +3,7 @@
 require_once 'header.php';
 require_once 'aside.php';
 ?>
-<link rel="stylesheet" href="css/login.css">
+
 <aside id="rightAside">
     <div class="container">
 
@@ -21,5 +21,5 @@ require_once 'aside.php';
             </div>
         </form>
     </div>
-    ​</aside>
-</main>
+</aside>
+<?php require_once 'footer.php' ?>

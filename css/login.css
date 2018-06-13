@@ -1,11 +1,11 @@
 #rightAside {
     width: 80%;
     float: left;
+    margin-left: 20%;
     padding-top: 20px;
+    margin-top: 56px;
 }
 main{
-    background-image: url(http://kreativo.se/backlogin.jpg);
-    background-size: cover;
     font-family: "Helvetica Neue", Helvetica, Arial;
     min-height: calc(100% - 57px);
 }

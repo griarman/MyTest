@@ -29,3 +29,23 @@ function get_cat(){
     $arr = mysqli_fetch_all($res,MYSQLI_ASSOC);
     return $arr;
 }
+function get_product($id = null){
+    global $conn;
+    if($id === null){
+        $query = "SELECT * FROM `products` ORDER BY id DESC ";
+        $res = mysqli_query($conn,$query);
+        if(!$res) die(mysqli_error($conn));
+        return mysqli_fetch_all($res,MYSQLI_ASSOC);
+    }
+    $query = "SELECT * FROM `products` WHERE cat_id=$id ORDER BY id DESC ";
+    $res = mysqli_query($conn,$query);
+    if(!$res) die(mysqli_error($conn));
+    return mysqli_fetch_all($res,MYSQLI_ASSOC);
+}
+function get_image($id){
+    global $conn;
+    $query = "SELECT prod_id,image FROM `images` WHERE prod_id=$id LIMIT 1";
+    $res = mysqli_query($conn,$query);
+    if(!$res) die(mysqli_error($conn));
+    return mysqli_fetch_all($res,MYSQLI_ASSOC);
+}

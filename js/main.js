@@ -120,6 +120,7 @@ $(document).ready(function(){
         form.append('id', id);
         form.append('src', src);
         $.ajax({
+
             url: "change_img.php",
             type: "POST",
             data: form,

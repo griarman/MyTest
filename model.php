@@ -44,8 +44,17 @@ function get_product($id = null){
 }
 function get_image($id){
     global $conn;
-    $query = "SELECT prod_id,image FROM `images` WHERE prod_id=$id LIMIT 1";
+    $query = "SELECT prod_id,image FROM `images` WHERE prod_id=$id";
     $res = mysqli_query($conn,$query);
     if(!$res) die(mysqli_error($conn));
     return mysqli_fetch_all($res,MYSQLI_ASSOC);
 }
+
+function get_prod_img($id){
+    global $conn;
+    $query = "SELECT `products`.`id`,`name`,`price`,`cat_id`,`description`,image FROM `products` LEFT JOIN images ON images.prod_id = products.id WHERE cat_id = $id";
+    $res = mysqli_query($conn,$query);
+    if(!$res) die(mysqli_error($conn));
+    return mysqli_fetch_all($res,MYSQLI_ASSOC);
+}
+

@@ -14,7 +14,11 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/categories.js"></script>
     <script src="js/main.js"></script>
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>

@@ -19,7 +19,7 @@ if(!$name || !$price || !$description){
 	die;
 }
 include 'model.php';
-if(!add_product($name,$price,$description,$img)){
+if(!add_product($name,$price,ucfirst(strtolower($description)),$img)){
 	header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found", true, 404);
 	die;
 }

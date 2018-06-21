@@ -19,7 +19,7 @@
     background: #4AA0A0;
     color: #fff;
 }
-.sectionChecked{
+.sectionChecked,#leftAside>section:active{
     color: #fff;
     background: #8EE4E4;
 }

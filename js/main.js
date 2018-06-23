@@ -10,7 +10,7 @@ $(document).ready(function(){
 			},
 			success:() => {
 				location.reload();
-			}, 
+			}
 		})
 	});
 	$('.del').click(function(){
@@ -23,10 +23,7 @@ $(document).ready(function(){
 			data:{
 				id: id,
 				action: 'rem'
-			},
-			success:() => {
 			}
-			
 		})
 	});
 	$('.upd').click(function(){
@@ -82,7 +79,7 @@ $(document).ready(function(){
 		let src = img.attr('src');
 		for(let i = 0; i < data.length;i++){
 			if(src === data[i]){
-				if(i != 0) {
+				if(i !== 0) {
                     img.attr('src', data[i - 1]);
                 }
 			}
@@ -97,16 +94,9 @@ $(document).ready(function(){
             	if(i !== data.length - 1){
                 	img.attr('src', data[i + 1]);
             	}
-                // alert(img.attr('src'));
-
             }
         }
     });
-
-    // $('img').filter("[data-array]").click(function () {
-		// let file = new  FormData(img);
-    // 	console.table(file);
-    // });
 	$('input').filter('[hidden]').on('change',function(evt){
         if(!this.value) {
         	return;
@@ -120,7 +110,6 @@ $(document).ready(function(){
         form.append('id', id);
         form.append('src', src);
         $.ajax({
-
             url: "change_img.php",
             type: "POST",
             data: form,
@@ -141,7 +130,6 @@ $(document).ready(function(){
 		href = href[0] + '=' + id;
 		location.search = href;
 	});
-
 	for(let i = 0; i < article.length;i++){
 		let href = location.search.split('=');
 		href = href[1];
@@ -152,30 +140,24 @@ $(document).ready(function(){
             });
 		}
 	}
-
     $('#images').on('change',function (evt) {
 		let files = evt.target.files;
 		$('#outputMulti').html('');
 		for (let i = 0, f; f = files[i]; i++) {
-
-		if (!f.type.match('image.*')) {
-		  alert("Только изображения....");
-		  return;
-		}
-
-		let reader = new FileReader();
-
-		reader.onload = (function(theFile) {
-		  return function(e) {
-		    let span = $('<span></span>');
-		    span.html(['<img class="img-thumbnail" src="', e.target.result,
-		                      '" title="', encodeURI(theFile.name), '">'].join(''));
-		    $('#outputMulti').before(span);
-		  };
-		})(f);
-
-		reader.readAsDataURL(f);
+			if (!f.type.match('image.*')) {
+			  alert("Только изображения....");
+			  return;
+			}
+			let reader = new FileReader();
+			reader.onload = (function(theFile) {
+			  return function(e) {
+				let span = $('<span></span>');
+				span.html(['<img class="img-thumbnail" src="', e.target.result,
+								  '" title="', encodeURI(theFile.name), '">'].join(''));
+				$('#outputMulti').before(span);
+			  };
+			})(f);
+			reader.readAsDataURL(f);
 		}
 	});
-
 });

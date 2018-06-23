@@ -60,6 +60,17 @@ input[type=number]{
     width: 80%;
     margin: 5px auto;
 }
+#pages{
+    text-align: center;
+    margin: 5px 0;
+    clear: both;
+    transform: translateY(20px);
+}
+.page{
+    margin-right: 10px;
+    color: #fff;
+    cursor:pointer;
+}
 .add{
     position: absolute;
     bottom: 0;

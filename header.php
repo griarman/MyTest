@@ -17,6 +17,7 @@
     <script src="js/global.js"></script>
     <script src="js/categories.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,15 +42,15 @@
                     <a class="nav-link " href="registration.php">Registration</a>
                 </li>
 HERO;
-                if(isset($_COOKIE['tkn'])){
-                    if(checkCookie($_COOKIE['tkn'])) {
-                        $user = checkCookie($_COOKIE['tkn']);
+                if(isset($_COOKIE['t1'])){
+                    if(checkCookie($_COOKIE['t1'])) {
+                        $user = checkCookie($_COOKIE['t1']);
                         $str =<<<HERO
                         <li class="nav-item">
                             <a class="nav-link" href="#">$user</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="#" id="logOut">Log Out</a>
+                            <a class="nav-link " href="exit.php" id="logOut">Log Out</a>
                         </li>
 HERO;
                     }

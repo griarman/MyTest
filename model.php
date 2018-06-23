@@ -11,13 +11,13 @@ function checkCookie($cookie){
     $cookie = addslashes($cookie);
     date_default_timezone_set('Asia/Yerevan');
     $date = time();
-    $query = "SELECT `userId` FROM `token` WHERE `token`='$cookie' AND `expireDate`>'$date'";
+    $query = "SELECT `name` FROM users,`token` WHERE `token`='$cookie' AND `expireDate`>'$date' AND userId=id";
     $res = mysqli_query($conn,$query);
     if (!$res) {
         die(mysqli_error($conn));
     }
     $arr = mysqli_fetch_all($res,MYSQLI_ASSOC);
-    return $arr ? $arr[0] : null;
+    return $arr ? $arr[0]['name'] : null;
 }
 function get_cat(){
     global $conn;

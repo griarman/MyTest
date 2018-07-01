@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Online shop</title>
     <meta charset="utf-8">
+    <title>Online shop</title>
     <link rel="icon" href="images/favicons/favicon.png">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/header.css">
@@ -18,6 +18,7 @@
     <script src="js/categories.js"></script>
     <script src="js/main.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/pagination.js"></script>
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

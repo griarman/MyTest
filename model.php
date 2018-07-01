@@ -29,30 +29,43 @@ function get_cat(){
     $arr = mysqli_fetch_all($res,MYSQLI_ASSOC);
     return $arr;
 }
-function get_product($id = null){
+function get_product($id = null,$offset = null){
     global $conn;
     if($id === null){
-        $query = "SELECT * FROM `products` ORDER BY id DESC ";
+        $offset === null? $query = "SELECT * FROM `products` ORDER BY id DESC LIMIT 6" : $query = "SELECT * FROM `products` ORDER BY id DESC LIMIT 6 OFFSET $offset";
         $res = mysqli_query($conn,$query);
         if(!$res) die(mysqli_error($conn));
         return mysqli_fetch_all($res,MYSQLI_ASSOC);
     }
-    $query = "SELECT * FROM `products` WHERE cat_id=$id ORDER BY id DESC ";
+    $offset === null? $query = "SELECT * FROM `products` WHERE cat_id=$id ORDER BY id DESC LIMIT 6" : $query = "SELECT * FROM `products` WHERE cat_id=$id ORDER BY id DESC LIMIT 6 OFFSET $offset";
     $res = mysqli_query($conn,$query);
     if(!$res) die(mysqli_error($conn));
     return mysqli_fetch_all($res,MYSQLI_ASSOC);
 }
+function get_product_count($id = null){
+    global $conn;
+    $id === null? $query = "SELECT * FROM products" : $query = "SELECT * FROM products WHERE cat_id = $id";
+    $res = mysqli_query($conn,$query);
+    return mysqli_num_rows($res);
+}
+
 function get_image($id){
     global $conn;
-    $query = "SELECT prod_id,image FROM `images` WHERE prod_id=$id";
+    $query = "SELECT image FROM `images` WHERE prod_id=$id";
     $res = mysqli_query($conn,$query);
     if(!$res) die(mysqli_error($conn));
     return mysqli_fetch_all($res,MYSQLI_ASSOC);
 }
 
-function get_prod_img($id){
+function get_prod_img($id,$offset = 1){
     global $conn;
-    $query = "SELECT `products`.`id`,`name`,`price`,`cat_id`,`description`,image FROM `products` LEFT JOIN images ON images.prod_id = products.id WHERE cat_id = $id";
+    if($offset === 1){
+        $query = "SELECT `products`.`id`,`name`,`price`,`cat_id`,`description`,image FROM `products` LEFT JOIN images ON images.prod_id = products.id WHERE cat_id = $id ORDER BY `products`.`id` DESC";
+    }
+    else{
+        $offset = ($offset - 1) * 6;
+        $query = "SELECT `products`.`id`,`name`,`price`,`cat_id`,`description`,image FROM `products` LEFT JOIN images ON images.prod_id = products.id WHERE cat_id = $id ORDER BY `products`.`id` DESC LIMIT  6 OFFSET $offset";
+    }
     $res = mysqli_query($conn,$query);
     if(!$res) die(mysqli_error($conn));
     return mysqli_fetch_all($res,MYSQLI_ASSOC);

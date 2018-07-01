@@ -9,7 +9,8 @@ if($action === 'rem'){
 }
 if ($action === 'upd') {
 	$name = trim($_POST['name']);
-	$price = trim($_POST['price']);
+    $price = trim($_POST['price'],'$');
+    $price = (int)trim($_POST['price']);
 	if (!is_numeric($price)) {
 		$price = "Isn't number"; 
 	}

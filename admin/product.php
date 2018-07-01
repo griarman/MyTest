@@ -70,21 +70,34 @@
             for($i = 0; $i < count($images); $i++){
                 $new_images[] = $images[$i]['image'];
             }
-
 			if(empty($new_images)){
 				$images = '<span>No Image</span>';
 			}
 			else{
                 $data = implode(' ',$new_images);
-				$images = "<form name='img' enctype=\"multipart/form-data\" method=\"post\" enctype=\"multipart/form-data\"><label for='img-{$arr[$key]['id']}'><img src={$new_images[0]} data-id='{$_SESSION['id']}' data-array='$data' class='newImg'></label><input type='file' hidden id='img-{$arr[$key]['id']}'></form>";
+				$images = "
+                            <form name='img' enctype=\"multipart/form-data\" method=\"post\" >
+                                <label for='img-{$arr[$key]['id']}'>
+                                    <img src={$new_images[0]} data-id='{$_SESSION['id']}' data-array='$data' class='newImg'>
+                                </label>
+                                <input type='file' hidden id='img-{$arr[$key]['id']}'>
+                            </form>";
 			}
-
-
 			echo "<tr id={$arr[$key]['id']}><td contenteditable=true class=prod_name>{$arr[$key]['name']}</td>
-			<td contenteditable=true class=prod_price>{$arr[$key]['price']}</td>
-			<td contenteditable=true class=prod_des>{$arr[$key]['description']}</td>
-			<td><button class='leftArrow'><</button>{$images}<button class='rightArrow'>></button></td>
-			<td><button class=prod_upd>Update</button></td><td><button class=prod_del>Delete</button></td></tr>";
+			<td contenteditable=true class=prod_price>{$arr[$key]['price']} $</td>
+			<td contenteditable=true class=prod_des>{$arr[$key]['description']}</td>";
+            if(count($new_images) < 2){
+                echo "<td>{$images}</td>";
+            }
+            else{
+              echo "<td>
+			            <button class='leftArrow'><</button>{$images}<button class='rightArrow'>></button>
+	                </td>";
+            }
+
+
+
+			echo "<td><button class=prod_upd>Update</button></td><td><button class=prod_del>Delete</button></td></tr>";
 		}
 		echo "</table></div></div>";
         if(isset($_SESSION['error'])){

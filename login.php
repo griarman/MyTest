@@ -25,4 +25,4 @@ require_once 'aside.php';
         </form>
     </div>
 ​</aside>
-<?php require_once 'footer.php';
+<?php require_once 'footer.php'; ?>

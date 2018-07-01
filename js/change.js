@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $('img').click(function () {
        let id = $(this).closest('section').attr('id');
-
         $.ajax({
             url:'change.php',
             method: 'POST',
@@ -13,12 +12,9 @@ $(document).ready(function () {
         .done((data)=>{
             if(data){
                 let img = $(this).data('images',data);
-                console.log(img.data('images'));
                 let src = img.data('images').pop();
                 img.data('images').unshift(src);
                 img.attr('src',img.data('images')[0].substr(3));
-                console.log(img.data('images'));
-
             }
         });
     });

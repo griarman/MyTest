@@ -3,15 +3,15 @@
 //echo '<pre>';
 if($_POST) {
     require_once 'model.php';
-    if(!isset($_POST['id']) && !isset($_POST['offset'])) {
+    if(empty($_POST['id']) && empty($_POST['offset'])) {
         $product = get_product();
         $count = get_product_count();
     }
-    elseif (!isset($_POST['offset'])){
+    elseif (empty($_POST['offset'])){
         $product = get_product($_POST['id']);
         $count = get_product_count($_POST['id']);
     }
-    elseif (!(isset($_POST['id']))){
+    elseif (!$_POST['id']){
         $product = get_product(null,$_POST['offset']);
         $count = get_product_count();
     }
@@ -28,6 +28,7 @@ if($_POST) {
         }
     }
     $product[] = $count;
+
     echo json_encode($product);
 }
 

@@ -32,9 +32,9 @@ function get_cat(){
 function get_product($id = null,$offset = null){
     global $conn;
     if($id === null){
-        $offset === null? $query = "SELECT * FROM `products` ORDER BY id DESC LIMIT 6" : $query = "SELECT * FROM `products` ORDER BY id DESC LIMIT 6 OFFSET $offset";
+        $query = $offset === null? "SELECT * FROM `products` ORDER BY id DESC LIMIT 6" : "SELECT * FROM `products` ORDER BY id DESC LIMIT 6 OFFSET $offset";
         $res = mysqli_query($conn,$query);
-        if(!$res) die(mysqli_error($conn));
+        if(!$res) die($query);
         return mysqli_fetch_all($res,MYSQLI_ASSOC);
     }
     $offset === null? $query = "SELECT * FROM `products` WHERE cat_id=$id ORDER BY id DESC LIMIT 6" : $query = "SELECT * FROM `products` WHERE cat_id=$id ORDER BY id DESC LIMIT 6 OFFSET $offset";

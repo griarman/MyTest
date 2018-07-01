@@ -75,7 +75,9 @@ window.pageChange = function () {
     let cat_id = $('.sectionChecked').attr('id');
     if(!cat_id){
         cat_id = null;
+
     }
+
     offset = (offset - 1) * 6;
     $.ajax({
         url:'pagination.php',
@@ -83,7 +85,8 @@ window.pageChange = function () {
         dataType: 'json',
         data:{
             offset:offset,
-            id: cat_id
+            id:cat_id,
+            action: 'offset'
         }
     })
         .done(function(data){

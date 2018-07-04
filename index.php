@@ -7,7 +7,6 @@
 <script>
     $(document).ready(function() {
         (function () {
-            // let offset = (id - 1) * 6;
             $.ajax({
                 url: 'pagination.php',
                 method: 'post',
@@ -27,4 +26,3 @@
 <?php require_once 'footer.php';?>
 
 <script src="js/change.js"></script>
-

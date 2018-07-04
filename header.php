@@ -19,8 +19,7 @@
     <script src="js/main.js"></script>
     <script src="js/login.js"></script>
     <script src="js/pagination.js"></script>
-
-
+    <script src="js/cart.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
@@ -46,6 +45,7 @@ HERO;
                 if(isset($_COOKIE['t1'])){
                     if(checkCookie($_COOKIE['t1'])) {
                         $user = checkCookie($_COOKIE['t1']);
+                        $_SESSION['user'] = $user;
                         $str =<<<HERO
                         <li class="nav-item">
                             <a class="nav-link" href="#">$user</a>

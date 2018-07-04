@@ -20,7 +20,7 @@ if($_POST) {
         $count = get_product_count($_POST['id']);
     }
     foreach ($product as $key => $value) {
-        if (!empty($img_new = get_image($value['id'], $value['cat_id']))) {
+        if (!empty($img_new = get_image($value['id']))) {
             for ($i = 0; $i < count($img_new); $i++) {
                 $img_new[$i] = $img_new[$i]['image'];
             }

@@ -34,8 +34,11 @@ if(!isset($_SESSION['true'])){
     <link rel="icon" href="../images/favicons/admin_favicon.png">
     <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/user.js"></script>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/admin_header.css">
+    <link rel="stylesheet" href="../css/user.css">
+
 </head>
 <body>
     <header>

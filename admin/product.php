@@ -21,7 +21,6 @@
 			</div>
 			<div id="right" class="col-md-3">
 				<label for="images" id="add_images">Add images</label>
-				<a href="exit.php">Log Out</a>
 				<input type="file" name="images[]" id="images" multiple="">
 				<section><span id="outputMulti"></span></section>
 			</div>

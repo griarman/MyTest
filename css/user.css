@@ -1,0 +1,7 @@
+th{
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.delete_user,.update_user{
+    cursor: pointer;
+}

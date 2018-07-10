@@ -37,7 +37,6 @@ $(document).ready(function () {
                 else{
                     alert("Changes confirmed");
                 }
-
           });
 
    });

@@ -18,7 +18,6 @@ require_once 'aside.php';
                     <label class="terms">
                         <input name="cecky" id="checky" value="1" type="checkbox" >I accept the terms of use
                     </label>
-
                 </div>
                 <button id="submit">SIGN UP FOR INVITE NOW</button>
             </div>

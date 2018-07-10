@@ -6,6 +6,10 @@ if($_POST){
         echo 'err';
         die;
     }
+    elseif (!isset($_COOKIE['t1'])){
+        echo 'err3';
+        die;
+    }
     elseif($_SESSION['user'] !== checkCookie($_COOKIE['t1'])) {
         echo 'err2';
         die;

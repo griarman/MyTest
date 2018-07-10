@@ -17,16 +17,18 @@ if(!isset($_SESSION['card'])){
             })
                 .done(function (data) {
                     del_from_basket(data);
-                })
-        })()
+                    total_amount();
+                });
+        })();
     });
-
 </script>
 
 <?php
 echo "<div id=\"total\">
+             
                 <span>Total:</span><span></span>
       </div>";
 echo "<div id='buy'>BUY</div>";
+
 echo '</aside>';
 require_once 'footer.php';

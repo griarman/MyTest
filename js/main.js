@@ -14,6 +14,9 @@ $(document).ready(function(){
 		})
 	});
 	$('.del').click(function(){
+		if(!confirm('Do you realy want to delete this category?')){
+			return;
+		}
 		let tr = $(this).closest('tr');
 		let id = tr.attr('id');
 		$(this).closest('tr').remove();
@@ -27,6 +30,9 @@ $(document).ready(function(){
 		})
 	});
 	$('.upd').click(function(){
+        if(!confirm('Do you realy want to change this category?')){
+            return;
+        }
 		let tr = $(this).closest('tr');
 		let id = tr.attr('id');
 		let name = tr.find('.name').html();

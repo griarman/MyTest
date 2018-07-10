@@ -1,25 +1,8 @@
 <?php 
-	session_start();
-	
 
-	if(!isset($_GET['id']) || !isset($_SESSION['true'])){
-		header('Location:index.php');
-		die;
-	}
-	$_SESSION['id']=$_GET['id'];
+    require_once 'header.php';
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Products</title>
-	<meta charset="utf-8">
-	<link rel="icon" href="../images/favicons/admin_favicon.png">
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../css/product.css">
-	<script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
-	<script type="text/javascript" src="../js/main.js"></script>
-</head>
-<body>
+
 	<form action="add_product.php" method="post" enctype="multipart/form-data" class="container-fluid">
 		<div class="row">
 			<div id="left" class="col-md-3">
@@ -104,8 +87,8 @@
             echo "<div id=error class='center'>{$_SESSION['error']}</div>";
             unset($_SESSION['error']);
         }
+    require_once 'footer.php';
 	?>
 
-</body>
-</html>
+
 <!--https://www.formget.com/ajax-image-upload-php/-->

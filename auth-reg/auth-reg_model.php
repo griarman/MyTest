@@ -60,9 +60,8 @@ function addCookie($token,$date,$user_id){
 function deleteCookie($token){
     global $conn;
     $query= "DELETE FROM `token` WHERE `token`='$token'";
-    $res = mysqli_query($conn,$query);
     setcookie('t1','',1);
-    return $res;
+    return mysqli_query($conn,$query);
 }
 function authorization($login,$password){
     global $conn;

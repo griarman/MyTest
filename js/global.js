@@ -93,9 +93,13 @@ window.add_to_card = function(){
             else if(data === 'er3'){
                 alert("Quantity must be number");
             }
+            else if(data === 'err3'){
+                alert('You must log in at first');
+            }
             else if(data === 'err2'){
                 alert('There isn\'t such kind of user');
-            }else if(data === 'er4'){
+            }
+            else if(data === 'er4'){
                 alert("Quantity can't be more than 100");
             }
             else if(data === 'er2'){
@@ -106,7 +110,6 @@ window.add_to_card = function(){
             }
         })
 };
-
 window.pageChange = function () {
     let offset = $(this).html();
     let cat_id = $('.sectionChecked').attr('id');
@@ -140,6 +143,7 @@ window.del_basket_prod = function(){
     })
         .done(function (data) {
             del_from_basket(data);
+            total_amount();
         })
 };
 window.del_from_basket = function (data) {
@@ -185,12 +189,51 @@ window.del_from_basket = function (data) {
         tag.append(description);
         tag.append(del);
         right.append(tag);
-    }  let total = $(`<div id="total">
+    }
+    let total = $(`<div id="total">
                                 <span>Total:</span><span id="summary"></span>
                       </div>`);
     let buy = $(`<div id='buy'>BUY</div>`);
+    buy.click(buy_prod);
     right.append(total);
     right.append(buy);
+};
+window.buy_prod = function(){
+    let quantity = $('.count');
+    let id = $('#rightAside>section');
+    let arr = [],count;
+    for (let i = 0; i < quantity.length; i++ ){
+        count = quantity.eq(i).val();
+        if(count > 0 && count < 100 && count %1 === 0) {
+            arr[i] = {
+                'id': id.eq(i).attr('id'),
+                'quantity': quantity.eq(i).val()
+            }
+        }
+        else{
+            alert('There are problems with products quantity,it\'s cant be more then 100 and less 0, and it must be integer');
+            return;
+        }
+    }
+    arr.push()
+    let str = JSON.stringify(arr);
+    $.ajax({
+       url:'buy_prod.php',
+       method:'post',
+       data:{
+           str:str
+       }
+    })
+        .done(function (data) {
+            if(data === 'err'){
+                alert('There are some problems with your order, please check if you fill all fields write,sorry for the inconvenience');
+            }
+            else{
+                alert('Your order is accepted, and after our verification we will contact you');
+            }
+        });
+    console.log(str);
+
 };
 window.total_amount = function () {
     let quantity = $('.count');

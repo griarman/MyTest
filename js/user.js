@@ -38,7 +38,6 @@ $(document).ready(function () {
                     alert("Changes confirmed");
                 }
           });
-
    });
    $('.delete_user').click(function () {
        if(!confirm("Do you really want to delete this user?")){

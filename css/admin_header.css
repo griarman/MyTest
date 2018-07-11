@@ -17,14 +17,14 @@
 
 .homeAdd{
     width: 5%!important;
-    box-shadow: inset 2px 2px 5px 0 #fff;
+    /*box-shadow: inset 2px 2px 5px 0 #fff;*/
     outline: none;
     /*padding: 3.5px 7px;*/
-    background: linear-gradient(0deg,#fff,#ccc);
+    background: linear-gradient(0deg,#ddd,#ccc);
     border-radius: 5px;
 }
-.homeInp:hover{
-    box-shadow: inset -2px -2px 5px 0 #fff;
+.homeAdd:hover{
+    box-shadow: inset 2px 2px 5px 0 #fff;
 }
 .homeInp{
     min-width: 25%!important;

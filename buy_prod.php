@@ -4,9 +4,7 @@ if(!empty($_POST)){
 
     require_once 'buy_model.php';
     $arr = json_decode($_POST['str']);
- /*   echo '<pre>';
-    print_r($arr);
-    die;*/
+
     foreach ($arr as $key => $value){
         if($value->quantity < 0 && $value->quantity > 100 ){
             echo 'err';

@@ -14,7 +14,6 @@ window.imageChange = function () {
         img.data('photos').unshift(src);
         src = img.data('photos')[0];
         img.attr('src',src);
-        // console.log(img.data('photos'));
     }
 };
 window.product_show = function (data){
@@ -55,7 +54,6 @@ window.product_show = function (data){
         tag.append(add);
         right.append(tag);
     }
-
     let pages =  Math.ceil(data[data.length - 1] / 6),pageNumber,pageDiv;
     pageDiv = $('<div id=\'pages\'></div>');
     for(let i = 1; i <= pages;i++){
@@ -215,7 +213,7 @@ window.buy_prod = function(){
             return;
         }
     }
-    arr.push()
+    arr.push();
     let str = JSON.stringify(arr);
     $.ajax({
        url:'buy_prod.php',

@@ -30,7 +30,7 @@ if(!isset($_SESSION['true'])){
         }
         ?>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../images/favicons/admin_favicon.png">
     <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>

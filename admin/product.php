@@ -40,8 +40,8 @@
         }
         echo '<a href="home.php" id="href">Add Cadegories</a></div>';
 
-        echo '<div class=\'col-md-7 offset-md-2\'>';
-		echo "<table>";
+        echo '<div class=\'col-md-7\'>';
+		echo "<table class='table'>";
 		echo "<tr><td>Name</td><td>Price</td><td>Description</td><td>Image</td></tr>";
 
 		$arr = get_prod($_SESSION['id']);

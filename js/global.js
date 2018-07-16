@@ -228,6 +228,7 @@ window.buy_prod = function(){
             }
             else{
                 alert('Your order is accepted, and after our verification we will contact you');
+                $('#rightAside').empty();
             }
         });
     console.log(str);

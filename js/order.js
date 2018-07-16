@@ -16,11 +16,14 @@ $(document).ready(function () {
     }
     function get_quantity(){
         let id = $(this).attr('id');
+        let orderId = $(this).closest('tr').find('.id').html();
+        // alert(orderId);
         $.ajax({
             url: 'get_quantity.php',
             method: 'post',
             data:{
-                id:id
+                id:id,
+                order_id:orderId
             }
         })
             .done( (data) =>{

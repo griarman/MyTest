@@ -22,5 +22,6 @@ if(!empty($_POST)){
     foreach ($arr as $value){
         add_order($id,$value->id,$value->quantity);
     }
+    unset($_SESSION['card']);
 
 }

@@ -24,9 +24,9 @@ function get_product_name($id){
     $res = mysqli_query($conn,$query);
     return mysqli_fetch_row($res);
 }
-function get_quantity($id){
+function get_quantity($id,$order_id){
     global $conn;
-    $query = "SELECT qunatity FROM order_details WHERE productId=$id";
+    $query = "SELECT qunatity FROM order_details WHERE productId=$id AND orderId = $order_id";
     $res = mysqli_query($conn,$query);
     return mysqli_fetch_all($res,MYSQLI_ASSOC);
 }

@@ -7,7 +7,7 @@
  */
 session_start();
 require_once 'order_model.php';
-if($_POST['id']){
-    $quantity = get_quantity($_POST['id'])[0]['qunatity'];
+if($_POST['id'] && $_POST['order_id']){
+    $quantity = get_quantity($_POST['id'],$_POST['order_id'])[0]['qunatity'];
     echo $quantity;
 }
